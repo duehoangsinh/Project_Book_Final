@@ -9,91 +9,11 @@ html,body{
 }
 /*header*/
 .header{
-    &-top-bar{
-        display: flex;
-        justify-content: space-between;
-        @media only screen and (max-width: $sm-screen-min) {
-            & .logo {
-                width: $w30;
-                & .logo-title-blue{
-                    font-size: $font-sl;
-                }
-                & .logo-title-green{
-                    font-size: $font-sl;
-                }                
-            }
-            & .search{
-                width: $w30 !important;                              
-            }
-            & .info{
-                width: $w30 !important;
-                &-heart{
-                    margin-right: 0 !important;
-                }
-                &-user{
-                    margin-right: 0 !important;
-                }
-                &-lang{
-                    margin-right: 0 !important;
-                }
-            }
-        }
-        @media only screen and (max-width: $md-screen-min) {
-            & .logo {
-                width: $w30 !important;
-                & .logo-title-blue{
-                    font-size: $font-xs;
-                }
-                & .logo-title-green{
-                    font-size: $font-sl;
-                }                
-            }
-            & .search{
-                width: $w30 !important;                              
-            }
-            & .info{
-                width: $w30 !important;
-                &-heart{
-                    margin-right: 0 !important;
-                }
-                &-user{
-                    margin-right: 0 !important;
-                }
-                &-lang{
-                    margin-right: 0 !important;
-                }
-            }
-        }      
-        @media only screen and (max-width: $lg-screen-min) {
-            & .logo {
-                width: $w30 !important;
-                & .logo-title-blue{
-                    font-size: $font-xs;
-                }
-                & .logo-title-green{
-                    font-size: $font-sl;
-                }                
-            }
-            & .search{
-                width: $w30 !important;                              
-            }
-            & .info{
-                width: $w30 !important;
-                &-heart{
-                    margin-right: 0 !important;
-                }
-                &-user{
-                    margin-right: 0 !important;
-                }
-                &-lang{
-                    margin-right: 0 !important;
-                }
-            }
-        }      
-
+    &-top-bar{        
         padding-top: 2em;        
         & .search{
-            display: flex;
+            flex-grow: 5;
+            display: flex;            
             align-items: center;
             position: relative;
             &-text{
@@ -103,14 +23,14 @@ html,body{
                 position: absolute;
                 z-index: 1;
                 top: 35%;
-                right: 10px;
+                right: 15%;
                 &:hover{
                     @include scale_1_2;
                     color: $color-blue;
                 }                               
             }     
         }
-        & .info{
+        & .info{            
             display: flex;
             justify-content: space-between ;
             align-items: center;
@@ -135,7 +55,7 @@ html,body{
             }
         }
     }
-    .logo{
+    .logo{       
         span{
             @extend %logo-font;
             font-size: $font-m;  
@@ -178,8 +98,8 @@ html,body{
             text-decoration: none;
             color: $color-secondary;
             /*font-size: $font-xs;*/
-            @media (min-width: 576px) {
-                font-size: $font-s;
+            @media (max-width: 576px) {
+                font-size: 0.7em ;
              }
              @media (min-width: 768px) {
                 font-size: $font-sl;
@@ -263,7 +183,7 @@ html,body{
                 }
             } 
             @media only screen and (max-width: $sm-screen-min) {    
-                position: absolute;
+                position: absolute;  
                 left: 10%; 
                 top: 10%;          
                 width: 80%;
@@ -272,11 +192,11 @@ html,body{
                     font-size: 1em;
                     & .first{
                         text-align: left;
-                        width: 100%;
+                        width: 50% !important;
                      }
                     & .last{
                         text-align: left;
-                        width:100%;
+                        width:60% !important;
                     }                    
                 }
                 &__secondary{
@@ -284,7 +204,8 @@ html,body{
                     width: 100%;
                 }
                 &__btn .button{
-                    font-size: 0.5em;                    
+                    font-size: 0.5em;
+                    padding: 2px;                                                         
                 }
             }      
             @media only screen and (max-width: $md-screen-min) {    
@@ -338,25 +259,33 @@ html,body{
             display: inline-block;
         &::after{
             content: '';
-            width: 100px;
-            height: 30px;
+            width: 60%;
+            height: 50%;
             /*background: linear-gradient(#019578,#fff);*/
             background: orange;              
             position: absolute;
-            top: 20px;
+            bottom: 0;
             right: -15px;
             z-index: -1;
             transform: rotate(-5deg);
             border-top-left-radius: 35px;
             border-bottom-right-radius: 35px;
             }
-    }
+        }
         & .view{
             color: $color-secondary;
             font-size: $font-xs;
             & .icon:hover{
                 color: $color-blue !important;
                 @include scale_1_2;
+            }
+        }
+        @media only screen and (max-width: $sm-screen-min) {
+            & .item{
+                font-size: 1.5em;
+            }
+            & .view{
+                font-size: 1em;
             }
         }        
     }
@@ -394,19 +323,19 @@ html,body{
             display: inline-block;
         &::after{
             content: '';
-            width: 100px;
-            height: 30px;
+            width: 60%;
+            height: 50%;
             /*background: linear-gradient(#019578,#fff);*/
             background: orange;              
             position: absolute;
-            top: 20px;
+            bottom: 0;
             right: -15px;
             z-index: -1;
             transform: rotate(-5deg);
             border-top-left-radius: 35px;
             border-bottom-right-radius: 35px;
             }
-    }
+        }
         & .view{
             color: $color-secondary;
             font-size: $font-xs;
@@ -414,10 +343,19 @@ html,body{
                 color: $color-blue !important;
                 @include scale_1_2;
             }
-        }        
+        }
+        @media only screen and (max-width: $sm-screen-min) {
+            & .item{
+                font-size: 1.5em;
+            }
+            & .view{
+                font-size: 1em;
+            }
+        }              
     }
-    &-product{
-        &-card{                       
+    &-product{        
+        &-card{  
+                                 
             & img{
                 box-shadow: 0 4px 7px 0 $color-blue;                                
                 &:hover{                    
@@ -467,15 +405,16 @@ html,body{
                 width: 400px !important;
             }
             &__btn{
-                width: 150px;
-                height: 50px;
+                width: 100px;
+                height: 40px;
+                padding: 2px 2px;
+                color: white !important;
                 background: $color-green;
                 border: 1px solid green;
                 border-radius: 10px;
-                font-size: $font-sl;
-                font-weight: bold;
+                font-size: $font-sl;                
                 &:hover{
-                    color: white;
+                    font-weight: bold;
                 }
             }            
         }
@@ -525,7 +464,8 @@ html,body{
             }  
             &-search{
                 &__btn{
-                    font-size: 1em;                   
+                    font-size: 1em;
+                                       
                 }
             }
         }
@@ -541,23 +481,170 @@ html,body{
     }
 }
 /*author*/
+@media only screen and (min-width: $xlg-screen-min) {    
+    .dad_author{
+        height: 250px !important;
+    } 
+}
 .author{   
-    margin-top: 75px; 
-    &-eka{        
-        height: 300px;
-        width: 90%;
-        border: 2px solid green;
-        border-radius: 20px;   
-        position: relative;     
-        &-title{
-            text-align: center;
-            margin-top: 30%;
+    margin-top: 75px;
+    display: grid;
+    grid-template-columns: auto auto auto ;      
+    grid-gap: 10px;
+    height: 100%; 
+    
+    @media only screen and (max-width: $sm-screen-min) { 
+        display: grid;
+        grid-template-columns: 100%;        
+        grid-gap: 50px;
+        &-eka{            
+            & .img-keka{
+                width: 20%;
+                left: 20px;                
+            }
+            &-quote{
+                top: -12% !important;
+                font-size: 1em !important;
+            }
         }
+        &-hazar{            
+            & .img-hazar{
+                width: 20%;
+                left: 20px;
+            }
+            &-quote{
+                top: -12% !important;
+                font-size: 1em !important;
+            }
+        }
+        &-khoe{            
+            & .img-khoe{
+                width: 20%;
+                left: 20px;
+            }
+            &-quote{
+                top: -12% !important;
+                font-size: 1em !important;
+            }
+        }
+    }
+    @media only screen and (min-width: $md-screen-min) {        
+        display: grid;
+        grid-template-columns: 100%;
+        grid-gap: 45px;
+        &-eka{  
+            & .img-keka{
+                width: 10%;
+                left: 20px;
+            }
+            &-quote{
+                top: -20% !important;
+                font-size: 1.5em !important;
+            }
+        }
+        &-hazar{            
+            & .img-hazar{
+                width: 10%;
+                left: 20px;
+            }
+            &-quote{
+                top: -20% !important;
+                font-size: 1.5em !important;
+            }
+        }
+        &-khoe{            
+            & .img-khoe{
+                width: 10%;
+                left: 20px;
+            }
+            &-quote{
+                top: -20% !important;
+                font-size: 1.5em !important;
+            }
+        }
+    }
+    @media only screen and (min-width: $lg-screen-min) {    
+         
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 10px;
+        &-eka{  
+            & .img-keka{
+                width: 100px;                
+            }
+            &-quote{
+                top: -10% !important;
+                font-size: 2em !important;
+            }
+        }
+        &-hazar{            
+            & .img-hazar{
+                width: 100px;                
+            }
+            &-quote{
+                top: -10% !important;
+                font-size: 2em !important;
+            }
+        }
+        &-khoe{            
+            & .img-khoe{
+                width: 100px;                
+            }
+            &-quote{
+                top: -20% !important;
+                font-size: 2em !important;
+            }
+        }
+    }
+    @media only screen and (min-width: $xlg-screen-min) {           
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        justify-content: space-between;
+        grid-gap: 10px;
+        &-eka{ 
+            & .img-keka{                                
+                width: 100px;
+                left: 35%;
+            }
+            &-quote{
+                top: -15% !important;
+                font-size: 3em !important;
+            }
+        }
+        &-hazar{            
+            & .img-hazar{
+                width: 100px;  
+                left: 35%;             
+            }
+            &-quote{
+                top: -15% !important;
+                font-size: 3em !important;
+            }
+        }
+        &-khoe{            
+            & .img-khoe{
+                width: 100px; 
+                left: 35%;               
+            }
+            &-quote{
+                top: -15% !important;
+                font-size: 3em !important;
+            }
+        }
+
+    }
+    &-eka{  
+        width: 100%;
+        border: 1px solid green;
+        border-radius: 20px;            
+        position: relative;              
+        &-title{           
+            text-align: center;            
+        }        
         & .img-keka{            
             position: absolute;
             border: 1px solid green;
-            border-radius: 100%;
-            left: 120px;
+            border-radius: 100%;            
             top: -45px;
             &:hover{
                 transition: all 0.5s ease-in;
@@ -572,21 +659,20 @@ html,body{
             right: 15%;
         }
     }
-    &-hazar{
-        height: 300px;
-        width: 90%;
-        border: 2px solid green;
+    
+    
+    &-hazar{        
+        width: 100%;
+        border: 1px solid green;
         border-radius: 20px;
         position: relative;   
         &-title{
-            text-align: center;
-            margin-top: 30%;
+            text-align: center;            
         }
         & .img-hazar{
             position: absolute;
             border: 1px solid green;
-            border-radius: 100%;
-            left: 120px;
+            border-radius: 100%;            
             top: -45px;
             &:hover{
                 transition: all 0.5s ease-in;
@@ -601,21 +687,19 @@ html,body{
             right: 15%;
         }
     }
-    &-khoe{
-        height: 300px;
-        width: 90%;
-        border: 2px solid green;
+    &-khoe{        
+        width: 100%;
+        border: 1px solid green;
         border-radius: 20px;
         position: relative;   
         &-title{
-            text-align: center;
-            margin-top: 30%;
+            text-align: center;           
         }
         & .img-khoe{
             position: absolute;
             border: 1px solid green;
             border-radius: 100%;
-            left: 120px;
+            
             top: -45px;
             &:hover{
                 transition: all 0.5s ease-in;
@@ -634,8 +718,7 @@ html,body{
 }
 /*footer*/
 .footer{
-    width: 100%;
-    height: 250px;
+    width: 100%;    
     padding: 10px;
     background-color: rgba(rgb(243, 46, 168), 0.3);
     &-logo{
@@ -682,4 +765,8 @@ html,body{
             }
         }
     }
+}
+.similar{
+    height: 300px;
+    width: 200px;
 }
